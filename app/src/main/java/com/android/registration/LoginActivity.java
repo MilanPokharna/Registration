@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
     @OnClick(R.id.loginButton)
     public void onViewClicked() {
 
-
+        signIn();
     }
 
         public void signIn() {
@@ -109,18 +109,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            final FirebaseUser user = mAuth.getCurrentUser();
-                            final String a = user.getUid().toString();
-                            final String url = user.getPhotoUrl().toString();
-                            if (url != null) {
-
-
-
-                            }
-                        } else {
-//                            Snackbar snackbar1 = Snackbar.make(startActivityLayout, "Login with College ID", Snackbar.LENGTH_SHORT);
-//                            snackbar1.show();
-
+                            user = mAuth.getCurrentUser();
+                            updateUI(user);
                         }
                     }
                 });
@@ -142,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
 
             updateUI(user);
         } else {
-            AlertDialog.Builder dialog = new AlertDialog.Builder(StartActivity.this);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(LoginActivity.this);
             dialog.setTitle("Connectino Error ");
             dialog.setCancelable(false);
             dialog.setMessage("Unable to connect with the server.\n Check your Internet connection and try again.");
