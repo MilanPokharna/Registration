@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
     @OnClick(R.id.loginButton)
     public void onViewClicked() {
 
-        signIn();
+        launchHomeScreen();
     }
 
         public void signIn() {
@@ -121,7 +121,12 @@ public class LoginActivity extends AppCompatActivity {
         if(user != null)
         {
             Intent i = new Intent(LoginActivity.this,LoginActivity.class);
+            Toast.makeText(this, "Logged in successfully ", Toast.LENGTH_SHORT).show();
             startActivity(i);
+        }
+        else
+        {
+            signIn();
         }
     }
 
