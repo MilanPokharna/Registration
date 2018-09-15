@@ -1,7 +1,9 @@
-package com.android.registration;
+Kpackage com.android.registration;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.android.registration.R;
 
 public class LoginActivity extends AppCompatActivity {
 
